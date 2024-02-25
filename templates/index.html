@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Пользователи
+{% endblock %}
+
+{% block content %}
+<h4>Зарегистрированные пользователи</h4>
+
+{% for user in regusers %}
+
+<div class="col-md-6 item">
+    <div class="item-in">
+        <h6>{{ user.names }}</h6>
+        <div class="seperator"></div>
+        <p>{{ user.cards }}</p>
+        <a href="#">Читать далее</a>
+    </div>
+</div>
+
+{% endfor %}
+
+
+{% endblock %}
+
