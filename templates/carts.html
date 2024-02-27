@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
 {% block title %}
-34534534
+Приемка-выдача
 {% endblock %}
 
 {% block content %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Страница с элементами</title>
+    <title>Приемка-выдача</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,22 +19,31 @@
             color: #333;
         }
         select, button {
-            padding: 10px;
+            padding: 18px;
             margin: 5px;
-            font-size: 16px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        button:active {
+        background-color: #3481B8;
+        color: #154889;
         }
         select {
-            width: 200px;
+            width: 400px;
         }
         #container {
             display: flex;
+            width: 550px;
             justify-content: center;
         }
         #calculator {
             margin-left: 20px;
+            width: 250px;
         }
         #calculator button.zero {
-            width: 60px;
+            width: 180px;
         }
     </style>
 </head>
@@ -42,19 +51,20 @@
 
     <h2>Заголовок</h2>
 
-    <div id="container">
+    <div id="container" class="form-control">
         <div>
-            <select>
+            <select class="form-control" required autofocus="autofocus">
+                <option disabled selected value="">Выберите картридж из списка</option>
                 <option value="option1">Опция 1</option>
                 <option value="option2">Опция 2</option>
                 <option value="option3">Опция 3</option>
             </select>
             <br>
-            <button>Кнопка 1</button>
-            <button>Кнопка 2</button>
+            <button>Принять</button>
+            <button> Выдать</button>
         </div>
 
-        <div id="calculator">
+        <div id="calculator" class="form-control">
             <input type="text" id="display" disabled>
             <br>
             <button onclick="appendToDisplay('1')">1</button>
@@ -70,8 +80,6 @@
             <button onclick="appendToDisplay('9')">9</button>
             <br>
             <button class="zero" onclick="appendToDisplay('0')">0</button>
-            <button onclick="calculate()">=</button>
-            <button onclick="clearDisplay()">C</button>
         </div>
     </div>
 
