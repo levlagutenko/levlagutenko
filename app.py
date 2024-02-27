@@ -31,13 +31,18 @@ def index():
 
     return render_template("index.html", regusers=regusers)
 
+@app.route('/carts')
+def carts():
+    return render_template("carts.html")
+
+
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
 
     if request.method == 'POST':
         cards = request.form['cards']
-        names = 'Маркс Карл'
+        names = 'Иван Иванович'
 
         users = Users(names=names, cards=cards)
 
@@ -49,6 +54,8 @@ def login():
             return '<h3>При добавлении статьи произошла ошибка!</h3>'
     else:
         return render_template("login.html")
+
+
 
 
 if __name__ == '__main__':
